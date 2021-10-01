@@ -16,12 +16,26 @@ const initialValue = {
 
 const CheckoutForm = (props) => {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
-  const [values, handleChanges] = useForm(initialValue);
+  const [values, errors, handleChanges, handleErrors] = useForm(initialValue);
 
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setShowSuccessMessage(true);
+    const submitErrors = {};
+        Object.keys(errors).forEach(field => {
+          submitErrors[field] = handleErrors(field, values[field])
+        })
+        handleErrors(submitErrors);
+        const hasErrors = (
+          submitErrors.firstName === '' && 
+          submitErrors.lastName === '' && 
+          submitErrors.address === '' &&
+          submitErrors.city === '' &&
+          submitErrors.state === '' &&
+          submitErrors.zip === '' 
+          );
+          setShowSuccessMessage(hasErrors)
   };
 
   return (
@@ -36,6 +50,7 @@ const CheckoutForm = (props) => {
             onChange={handleChanges}
           />
         </label>
+        {(errors.firstName) && <p>Error: {errors.firstName}</p>}
         <label>
           Last Name:
           <input
@@ -44,6 +59,7 @@ const CheckoutForm = (props) => {
             onChange={handleChanges}
           />
         </label>
+        {(errors.lastName) && <p>Error: {errors.lastName}</p>}
         <label>
           Address:
           <input
@@ -52,18 +68,22 @@ const CheckoutForm = (props) => {
             onChange={handleChanges}
           />
         </label>
+        {(errors.address) && <p>Error: {errors.address}</p>}
         <label>
           City:
           <input name="city" value={values.city} onChange={handleChanges} />
         </label>
+        {(errors.city) && <p>Error: {errors.city}</p>}
         <label>
           State:
           <input name="state" value={values.state} onChange={handleChanges} />
         </label>
+        {(errors.state) && <p>Error: {errors.state}</p>}
         <label>
           Zip:
           <input name="zip" value={values.zip} onChange={handleChanges} />
         </label>
+        {(errors.zip) && <p>Error: {errors.zip}</p>}
         <button>Checkout</button>
       </form>
 
