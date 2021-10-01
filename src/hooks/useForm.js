@@ -9,11 +9,11 @@ export const useForm = (initialValue) => {
     
     const handleErrors = (fieldName, fieldValue) => {
         if (fieldName === 'firstName' && fieldValue === '') 
-        return 'First Name isrequired';
+        return 'First Name is required';
         if (fieldName === 'lastName' && fieldValue === '')
-        return 'Last Name isrequired' 
+        return 'Last Name is required' 
         if (fieldName === 'address' && fieldValue === '')
-        return'Address isrequired'
+        return'Address is required'
         if (fieldName === 'city' && fieldValue ==='')
         return 'City is required'
         if (fieldName === 'state' && fieldValue === '')

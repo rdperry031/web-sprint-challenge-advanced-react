@@ -50,7 +50,7 @@ const CheckoutForm = (props) => {
             onChange={handleChanges}
           />
         </label>
-        {(errors.firstName) && <p>Error: {errors.firstName}</p>}
+        {(errors.firstName) && <p style={{color: 'white'}}>Error: {errors.firstName}</p>}
         <label>
           Last Name:
           <input
@@ -59,7 +59,7 @@ const CheckoutForm = (props) => {
             onChange={handleChanges}
           />
         </label>
-        {(errors.lastName) && <p>Error: {errors.lastName}</p>}
+        {(errors.lastName) && <p style={{color: 'white'}}>Error: {errors.lastName}</p>}
         <label>
           Address:
           <input
@@ -68,22 +68,22 @@ const CheckoutForm = (props) => {
             onChange={handleChanges}
           />
         </label>
-        {(errors.address) && <p>Error: {errors.address}</p>}
+        {(errors.address) && <p style={{color: 'white'}}>Error: {errors.address}</p>}
         <label>
           City:
           <input name="city" value={values.city} onChange={handleChanges} />
         </label>
-        {(errors.city) && <p>Error: {errors.city}</p>}
+        {(errors.city) && <p style={{color: 'white'}}>Error: {errors.city}</p>}
         <label>
           State:
           <input name="state" value={values.state} onChange={handleChanges} />
         </label>
-        {(errors.state) && <p>Error: {errors.state}</p>}
+        {(errors.state) && <p style={{color: 'white'}}>Error: {errors.state}</p>}
         <label>
           Zip:
           <input name="zip" value={values.zip} onChange={handleChanges} />
         </label>
-        {(errors.zip) && <p>Error: {errors.zip}</p>}
+        {(errors.zip) && <p style={{color: 'white'}}>Error: {errors.zip}</p>}
         <button>Checkout</button>
       </form>
 
